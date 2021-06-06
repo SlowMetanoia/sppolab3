@@ -16,4 +16,17 @@ public class IncidenceMatrix extends DescartesCompositionIntoValuesMatrix<Edge,N
         };
         content = content + "IncidenceMatrix: \n";
     }
+    public IncidenceMatrix(Graph graph) {
+    	super(graph.getEdges(), graph.getNodes());
+        this.Map =(Pair<Edge,Node> context)->{
+            Node node = context.getSecond();
+            Edge edge = context.getFirst();
+            if (edge.isSource(node))
+                return 1;
+            if (edge.isReceiver(node))
+                return -1;
+            return 0;
+        };
+        content = content + "IncidenceMatrix: \n";
+	}
 }

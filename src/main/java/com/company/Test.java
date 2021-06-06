@@ -2,13 +2,15 @@ package com.company;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import logger.ApplicationConfig;
+
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 
 public class Test {
     public static void main() throws Exception {
-        GraphBuilder graphBuilder = new GraphBuilder(scanGraph("ApplicationContext.xml","Graph1"));	
-        System.out.println("Здесь должен запускаться логгер");
+    	AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig.class);
+        GraphBuilder graphBuilder = new GraphBuilder(context.getBean("GetAnyGraph",Graph.class));	
         
         MainMenu mainMenu = new MainMenu(graphBuilder);
         while(graphBuilder.getCreated().size() == 0){
@@ -16,21 +18,15 @@ public class Test {
             mainMenu.Read();
         }
         Graph graph = graphBuilder.getCreated().get(0);
-        //System.out.println(graph.toString());
-        AdjacencyMatrix adjacencyMatrix = new AdjacencyMatrix(graph.getNodes(), graph.getNodes());
-        IncidenceMatrix incidenceMatrix = new IncidenceMatrix(graph.getEdges(), graph.getNodes());
-        adjacencyMatrix.CreateMatrix();
-        incidenceMatrix.CreateMatrix();
-        System.out.println(adjacencyMatrix.getContent());
-        System.out.println(incidenceMatrix.getContent());
+        System.out.println(graph.toString());
+        String adjacencyMatrix = context.getBean("GetAdjMtx",String.class);
+        String incidenceMatrix = context.getBean("GetIncMtx",String.class);
+        //AdjacencyMatrix adjacencyMatrix = new AdjacencyMatrix(graph.getNodes(), graph.getNodes());
+        //IncidenceMatrix incidenceMatrix = new IncidenceMatrix(graph.getEdges(), graph.getNodes());
+        //adjacencyMatrix.CreateMatrix();
+        //incidenceMatrix.CreateMatrix();
+        System.out.println(adjacencyMatrix);
+        System.out.println(incidenceMatrix);
     }
     //------------------------------------------------------------------------
-    private static Graph scanGraph(String path,String graphBeanName) 
-    {
-    	ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext(path);
-    	System.out.println(ctx.getBean(graphBeanName.toString()));
-    	Graph result = ctx.getBean(graphBeanName,Graph.class);
-    	ctx.close();
-    	return result;
-    }
 }

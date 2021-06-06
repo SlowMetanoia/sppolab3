@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.NavigableMap;
 import java.util.function.Supplier;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+
 public class Node implements IConnectable, IShortNameable {
 
     private Graph graph;
@@ -53,6 +58,7 @@ public class Node implements IConnectable, IShortNameable {
     public String ShortName() {
         return name + description;
     }
+
     public static Node GetNode(Supplier<String> NiveNameCreator) {
     	Node result = new Node(NiveNameCreator.get(),NiveNameCreator.get());
     	return result;

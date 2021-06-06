@@ -15,4 +15,16 @@ public class AdjacencyMatrix extends DescartesCompositionIntoValuesMatrix<Node,N
         };
         content = content + "AdjacencyMatrix: \n";
     }
+    public AdjacencyMatrix(Graph graph) {
+    	super(graph.getNodes(), graph.getNodes());
+    	Map = (Pair<Node,Node> pair)->{
+            Node node1 = pair.getFirst();
+            Node node2 = pair.getSecond();
+            if(node1.IsNodeConnected(node2))
+                return 1;
+            else
+                return 0;
+        };
+        content = content + "AdjacencyMatrix: \n";
+    }
 }
