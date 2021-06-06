@@ -34,7 +34,7 @@ public class DescartesCompositionIntoValuesMatrix<T1,T2,ValuesT> implements IPri
         }
         return Matrix;
     }
-
+    
     @Override
     public String getContent() {
         return content;
