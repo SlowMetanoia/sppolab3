@@ -84,5 +84,4 @@ public class ApplicationConfig {
 		mtx.CreateMatrix();
 		return mtx.getContent();
 	}
-	
 }

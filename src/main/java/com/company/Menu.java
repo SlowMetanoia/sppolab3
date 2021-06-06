@@ -33,7 +33,7 @@ public class Menu<T> implements IPrintable{
         for (String str:menuMap.keySet()) {
             result = result + str + "\t" + menuMap.get(str).getSecond() + "\n";
         }
-        return result;
+        return "\n"+result;
     }
 
 }
