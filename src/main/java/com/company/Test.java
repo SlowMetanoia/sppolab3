@@ -2,8 +2,6 @@ package com.company;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import logger.config;
-
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 
@@ -11,8 +9,7 @@ public class Test {
     public static void main() throws Exception {
         GraphBuilder graphBuilder = new GraphBuilder(scanGraph("ApplicationContext.xml","Graph1"));	
         System.out.println("Здесь должен запускаться логгер");
-        AnnotationConfigApplicationContext ctx = 
-       		 new AnnotationConfigApplicationContext(config.class);
+        
         MainMenu mainMenu = new MainMenu(graphBuilder);
         while(graphBuilder.getCreated().size() == 0){
             System.out.println(mainMenu.getContent());
@@ -26,7 +23,6 @@ public class Test {
         incidenceMatrix.CreateMatrix();
         System.out.println(adjacencyMatrix.getContent());
         System.out.println(incidenceMatrix.getContent());
-        ctx.close();
     }
     //------------------------------------------------------------------------
     private static Graph scanGraph(String path,String graphBeanName) 
