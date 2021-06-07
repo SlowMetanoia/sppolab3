@@ -19,6 +19,7 @@ import org.springframework.stereotype.Component;
 
 import com.company.*;
 
+
 @Configuration
 @Component
 @ComponentScan("com.company")
@@ -28,7 +29,7 @@ public class ApplicationConfig {
 	@Bean
 	public Graph GetAnyGraph() throws InterruptedException, ExecutionException
 	{
-		return GetGraph(5,4);
+		return GetGraph(7,15);
 	}
 	
 	public static Graph<Integer, Integer> GetGraph(int NodeNum,int EdgeNum) throws InterruptedException, ExecutionException {

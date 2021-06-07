@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.*;
 import java.util.function.*;
-
+//абстрация всех текстовых меню
 public class Menu<T> implements IPrintable{
     protected HashMap<String, Pair<Consumer<T>, String>> menuMap;
     protected T context;

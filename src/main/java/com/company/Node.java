@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-
+//вершина графа
 public class Node implements IConnectable, IShortNameable {
 
     private Graph graph;

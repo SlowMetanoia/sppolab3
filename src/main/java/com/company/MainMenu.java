@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.HashMap;
 import java.util.Scanner;
-
+//реализация абстрактного меню для главного меню
 public class MainMenu extends Menu<GraphBuilder> {
     public MainMenu(GraphBuilder context) {
         super(context);

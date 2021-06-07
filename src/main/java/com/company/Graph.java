@@ -5,6 +5,7 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.Random;
 
+//собственно граф
 public class Graph<NodeT,EdgeT> {
 
     final private ArrayList<Node> nodes;
@@ -54,32 +55,7 @@ public class Graph<NodeT,EdgeT> {
         }
         return edgeList;
     }
-    public static Graph<Integer,Integer> GetGraph(int NodeNum,int EdgeNum) {
-    	Function<ArrayList<Node>,Pair<Node,Node>> fNode = (ArrayList<Node> list)->
-    	{
-    		Random rand = new Random();
-    		int l = list.toArray().length;
-    		Pair<Node,Node> result = new Pair<Node,Node>(list.get(rand.nextInt(l)),list.get(rand.nextInt(l)));
-    		return result;
-    	};
-    	Supplier<String> sName = ()->{
-    		Random rand = new Random();
-    		Integer result = rand.nextInt(1000);
-    		return result.toString();
-    	};
-    	ArrayList<Node> listN = new ArrayList<Node>();
-    	ArrayList<Edge> listE = new ArrayList<Edge>();
-    	for(int i = 0;i<NodeNum;i++)
-    	{
-    		listN.add(Node.GetNode(sName));
-    	}
-    	for(int i = 0;i<EdgeNum;i++)
-    	{
-    		listE.add(Edge.GetEdge(fNode, listN, sName));
-    	}
-    	Graph<Integer,Integer> result = new Graph<Integer,Integer>(listN, listE, sName.get(), sName.get());
-    	return result;
-    }
+    
     @Override
     public String toString() {
     	return "nodes = "+nodes.toString()+"\n edges = "+edges.toString()+"\n name = "+name+"\n description = "+ description;

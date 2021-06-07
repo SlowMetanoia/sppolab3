@@ -3,7 +3,7 @@ package com.company;
 import java.util.ArrayList;
 import java.util.function.Function;
 import java.util.function.Supplier;
-
+//ребро в графе
 public class Edge implements IConnectable{
 
     private Graph graph;
@@ -42,9 +42,11 @@ public class Edge implements IConnectable{
         this.source = source;
         this.receiver = receiver;
     }
-
+    //является ли нода смежной ребру
     boolean isMember(Node node) {return node == source||node == receiver;}
+    //источником
     boolean isSource(Node node) {return node == source;}
+    //приёмником
     boolean isReceiver(Node node) {return node == receiver;}
 
     @Override
@@ -56,10 +58,7 @@ public class Edge implements IConnectable{
     public Boolean IsEdgeConnected(Edge edge) {
         return edge.isMember(receiver);
     }
-    public static Edge GetEdge(Function<ArrayList<Node>,Pair<Node,Node>> NiveCreator,ArrayList<Node> nodes,Supplier<String> NiveNameCreator) {
-    	Pair<Node,Node> result = NiveCreator.apply(nodes);
-    	return new Edge(NiveNameCreator.get(),NiveNameCreator.get(),result.getFirst(),result.getSecond());
-    }
+    
     @Override
     public String toString() {
     	// TODO Auto-generated method stub

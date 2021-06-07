@@ -3,6 +3,7 @@ package com.company;
 import java.util.*;
 import java.util.function.Function;
 
+//декартово произведение 2-х множеств 
 public class DescartesCompositionIntoValuesMatrix<T1,T2,ValuesT> implements IPrintable{
     protected final List<T1> params1;
     protected final List<T2> params2;
@@ -19,7 +20,7 @@ public class DescartesCompositionIntoValuesMatrix<T1,T2,ValuesT> implements IPri
         this.params2 = params2;
         content = new String("");
     }
-
+    //создание матрицы результатов обработки декартового произведения
     public ValuesT[][] CreateMatrix() throws Exception {
         if(Map == null)
         {

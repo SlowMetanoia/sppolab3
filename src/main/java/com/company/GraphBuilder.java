@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-
+//билдер для графа
 public class GraphBuilder extends AbstractBuilder<Graph>{
     private ArrayList<Node> nodes;
     private ArrayList<Edge> edges;

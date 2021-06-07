@@ -1,7 +1,7 @@
 package com.company;
 
 import java.util.List;
-
+//Матрица смежности
 public class AdjacencyMatrix extends DescartesCompositionIntoValuesMatrix<Node,Node,Integer>{
     public AdjacencyMatrix(List<Node> params1, List<Node> params2) {
         super(params1, params2);

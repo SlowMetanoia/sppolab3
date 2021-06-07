@@ -1,7 +1,7 @@
 package com.company;
 
 import java.util.List;
-
+//матрица инцедентности
 public class IncidenceMatrix extends DescartesCompositionIntoValuesMatrix<Edge,Node,Integer>{
     public IncidenceMatrix(List<Edge> params1, List<Node> params2) {
         super(params1, params2);
