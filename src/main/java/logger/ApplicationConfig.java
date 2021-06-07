@@ -45,6 +45,7 @@ public class ApplicationConfig {
     		Integer result = rand.nextInt(1000);
     		return result.toString();
     	};
+    	//Подключение вилки к бассейну =)
     	ExecutorService executor = ForkJoinPool.commonPool();
     	final Future<ArrayList<Node>> NodeCreator =
     			executor.submit(new Callable<ArrayList<Node>>() {

@@ -58,9 +58,4 @@ public class Node implements IConnectable, IShortNameable {
     public String ShortName() {
         return name + description;
     }
-
-    public static Node GetNode(Supplier<String> NiveNameCreator) {
-    	Node result = new Node(NiveNameCreator.get(),NiveNameCreator.get());
-    	return result;
-    }
 }
